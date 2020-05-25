@@ -144,15 +144,24 @@ func newCN470Band(repeaterCompatible bool) (Band, error) {
 		}
 	}
 
-	// initialize downlink channels
 	for i := 0; i < 48; i++ {
 		b.downlinkChannels[i] = Channel{
-			Frequency: 500300000 + (i * 200000),
+			Frequency: 470300000 + (i * 200000),
 			MinDR:     0,
 			MaxDR:     5,
 			enabled:   true,
 		}
 	}
+	
+	// initialize downlink channels
+	//for i := 0; i < 48; i++ {
+	//	b.downlinkChannels[i] = Channel{
+	//		Frequency: 500300000 + (i * 200000),
+	//		MinDR:     0,
+	//		MaxDR:     5,
+	//		enabled:   true,
+	//	}
+	//}
 
 	return &b, nil
 }
